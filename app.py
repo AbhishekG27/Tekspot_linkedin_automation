@@ -114,13 +114,25 @@ else:
 # --- Step 3: Generate content (Gemini — strategist prompt) ---
 st.header("3️⃣ LinkedIn post (Gemini)")
 if st.session_state.selected_topic:
+    with st.expander("✏️ Template / extra instructions (optional)", expanded=False):
+        st.caption("Add a custom template, length (e.g. 150 tokens / 100 words), or tone instructions.")
+        post_extra = st.text_area(
+            "Template or instructions",
+            placeholder="e.g. Keep to 150 tokens. Or: Use formal tone, focus on data. Or paste your template.",
+            key="post_extra",
+            height=80,
+        )
     if st.button("✨ Generate post"):
         if not GEMINI_API_KEY:
             st.error("Set GEMINI_API_KEY in .env")
         else:
             with st.spinner("Generating post…"):
                 try:
-                    st.session_state.content = generate_linkedin_content(st.session_state.selected_topic)
+                    extra = post_extra.strip() if post_extra else None
+                    st.session_state.content = generate_linkedin_content(
+                        st.session_state.selected_topic,
+                        extra_context=extra,
+                    )
                 except Exception as e:
                     st.exception(e)
     if st.session_state.content:
@@ -132,16 +144,16 @@ else:
 st.header("4️⃣ Post image (Gemini Imagen)")
 if st.session_state.selected_topic:
     with st.expander("🖼️ Image template (optional)", expanded=False):
-        st.caption("Describe the layout/style you want. The image will match your content but follow this template.")
+        st.caption("Uses Tekspot template + reference images from images/ folder. Logo and purple-teal gradient applied by default.")
         image_template = st.text_area(
-            "Template description",
-            placeholder="e.g. Minimal slide: white background, bold headline at top center, one simple icon in the middle, corporate blue accent.",
+            "Template override (optional)",
+            placeholder="Leave blank for default Tekspot style. Or describe a different layout.",
             key="image_template",
-            height=80,
+            height=60,
         )
         hero_for_image = st.text_input(
-            "HERO headline for image (optional)",
-            placeholder="Paste the HERO Copy from the caption above to show on the image.",
+            "HERO headline for image (5–8 words)",
+            placeholder="Paste HERO Copy from caption above — short headline only.",
             key="hero_for_image",
         )
     if st.button("🖼️ Generate image"):
