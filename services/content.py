@@ -30,7 +30,7 @@ Output 3: Hashtags
 - Create relevant hashtags that maximize reach and engagement for the post
 - Target HR Leaders, CHROs, talent professionals
 
-Goals: Establish long-term authority; drive thoughtful, high-quality comments; build a high-signal professional community (e.g. HR Leaders, CHROs).
+Goals: Establish long-term authority; drive thoughtful, high-quality comments; build a high-signal professional community like HR Leaders, CHROs.
 
 Return the response in this exact format only (use these section headers exactly):
 

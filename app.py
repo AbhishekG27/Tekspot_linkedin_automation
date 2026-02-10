@@ -20,13 +20,13 @@ from services.image_gen import generate_post_image
 ensure_dirs()
 
 st.set_page_config(
-    page_title="LinkedIn Content Machine",
+    page_title="LinkedIn Content Machine-Tekspot Global Solutions",
     page_icon="📄",
     layout="centered",
     initial_sidebar_state="collapsed",
 )
 
-st.title("📄 LinkedIn Content Machine")
+st.title("📄 LinkedIn Content Machine-Tekspot Global Solutions")
 st.caption("Topics (Tavily web search) → Select → Generate post & image → Approve")
 
 # Session state
