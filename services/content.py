@@ -26,7 +26,7 @@ Output 2: HERO Copy for the Creative
 - Must align directly with the caption
 - No punctuation-heavy or marketing fluff
 
-Goals: Establish long-term authority; drive thoughtful, high-quality comments; build a high-signal professional community.
+Goals:Establish long-term authority; drive thoughtful, high-quality comments; build a high-signal professional communities like HR Leaders, CHRO's.
 
 Return the response in this exact format only (use these section headers exactly):
 
@@ -37,7 +37,8 @@ LinkedIn Caption
 <final caption text>
 
 HERO Copy based on the Linkedin caption
-<final hero line, 8–14 words>"""
+<final hero line, 8–14 words>
+Create relevant hashtags which will maximize the reach and engagement. """
 
 
 def generate_linkedin_content(
